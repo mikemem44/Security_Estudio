@@ -34,5 +34,15 @@ namespace DAL
                 return true;
             }
         }
+        public static bool Anular (int IdRol)
+        {
+            using (BDInformaticSecurity bd = new BDInformaticSecurity())
+            {
+                var Registro = bd.Roles.Find(bd.IdRol);
+                Registro.Activo = false;
+                bd.SaveChanges();
+                return true;
+            }
+        }
     }
 }

@@ -56,6 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="RolFormulario.cs" />
+    <Compile Include="RolPermiso.cs" />
+    <Compile Include="Usuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
