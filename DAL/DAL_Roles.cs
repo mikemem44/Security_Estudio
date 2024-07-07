@@ -34,11 +34,11 @@ namespace DAL
                 return true;
             }
         }
-        public static bool Anular (int IdRol)
+        public static bool Anular (Roles Entidad)
         {
-            using (BDInformaticSecurity bd = new BDInformaticSecurity())
+            using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
             {
-                var Registro = bd.Roles.Find(bd.IdRol);
+                var Registro = bd.Roles.Find(Entidad.IdRol);
                 Registro.Activo = false;
                 bd.SaveChanges();
                 return true;
