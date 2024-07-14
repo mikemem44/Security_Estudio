@@ -17,7 +17,7 @@ namespace EL
 		[MaxLength(50)]
 		[Required]
 		public string NombreUsuario { get; set; }
-		public byte[]? Contrasena { get; set; }
+		public byte[] Contrasena { get; set; }
 		[Required]
 		public bool Bloqueado { get; set; }
 		[Required]

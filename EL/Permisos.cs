@@ -13,16 +13,16 @@ namespace EL
     public class Permisos
     {
         [Key]
-        [Required]
         public int IdPermiso { get; set; }
+        [MaxLength(50)]
         [Required]
-        public int NombrePermiso { get; set; }
+        public string NombrePermiso { get; set; }
         [Required]
         public bool Activo { get; set; }
         [Required]
         public int IdUsuarioRegistra { get; set; }
         [Required]
-        public DateTimeFormatInfo FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
         public int? IdUsuarioActualiza { get; set; }
         public DateTime? FechaActualizacion { get; set; }
     }

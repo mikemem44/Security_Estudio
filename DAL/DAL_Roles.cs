@@ -9,7 +9,7 @@ namespace DAL
 {
     public static class DAL_Roles
     {
-        public static Roles Insert (Roles Entidad)
+        public static Roles Insert(Roles Entidad)
         {
             using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
             {
@@ -20,29 +20,49 @@ namespace DAL
                 return Entidad;
             }
         }
-
         public static bool Update(Roles Entidad)
         {
             using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
             {
                 var Registro = bd.Roles.Find(Entidad.IdRol);
-
                 Registro.NombreRol = Entidad.NombreRol;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
-                Registro.FechaActualizacion = DateTime.Now;
-                bd.SaveChanges ();
-                return true;
+                Registro.FechaActualizacion = Entidad.FechaActualizacion;
+                return bd.SaveChanges() > 0;
             }
         }
-        public static bool Anular (Roles Entidad)
+        public static bool Anular(Roles Entidad)
         {
             using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
             {
                 var Registro = bd.Roles.Find(Entidad.IdRol);
-                Registro.Activo = false;
-                bd.SaveChanges();
-                return true;
+                Registro.Activo = Entidad.Activo;
+                Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
+                Registro.FechaActualizacion = Entidad.FechaActualizacion;
+                return bd.SaveChanges() > 0;
+            }
+        }
+        public static bool Existe(Roles Entidad)
+        {
+            using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
+            {
+                return bd.Roles.Where(a => a.IdRol == Entidad.IdRol).Count() > 0;
+            }
+        }
+        public static Roles Registro(Roles Entidad)
+        {
+            using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
+            {
+                return bd.Roles.Where(a => a.IdRol == Entidad.IdRol).SingleOrDefault();
+            }
+        }
+        public static List<Roles> Lista(bool Activo = true)
+        {
+            using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
+            {
+                return bd.Roles.Where(a => a.Activo == Activo).ToList();
             }
         }
     }
 }
+
