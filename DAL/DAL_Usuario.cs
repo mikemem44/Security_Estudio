@@ -28,7 +28,6 @@ namespace DAL
                 var Registro = bd.Usuarios.Find(Entidad.IdUsuario);
                 Registro.NombreCompleto = Entidad.NombreCompleto;
                 Registro.NombreUsuario = Entidad.NombreUsuario;
-                Registro.Contrasena = Entidad.Contrasena;
                 Registro.IdRol = Entidad.IdRol;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
@@ -68,9 +67,8 @@ namespace DAL
         {
             using (BDInformaticSecuriy bd = new BDInformaticSecuriy())
             {
-                var Registro = bd.Usuarios.FirstOrDefault(a => a.NombreUsuario == username);
-
-                return Registro?.IdUsuario ?? -1;
+                return bd.Usuarios.Where(a=>a.NombreUsuario == username)
+                    .Select(a=>a.IdUsuario).SingleOrDefault();
 
             }
         }
