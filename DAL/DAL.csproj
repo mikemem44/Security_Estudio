@@ -53,7 +53,10 @@
   <ItemGroup>
     <Compile Include="BDInformaticSecuriy.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DAL_Formularios.cs" />
+    <Compile Include="DAL_Permisos.cs" />
     <Compile Include="DAL_Roles.cs" />
+    <Compile Include="DAL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
