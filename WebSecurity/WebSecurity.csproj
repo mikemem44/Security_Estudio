@@ -2508,6 +2508,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{113259b0-334b-46b0-a8c7-d35536417fa3}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EL\EL.csproj">
+      <Project>{c0a03001-0113-4826-93cf-a8ecd2e319f0}</Project>
+      <Name>EL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
+      <Project>{06431284-3d1a-4d51-a9eb-01cbce22eece}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
